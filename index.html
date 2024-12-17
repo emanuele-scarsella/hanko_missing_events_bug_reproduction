@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hanko</title>
+	</head>
+	<body>
+		<hanko-auth></hanko-auth>
+		<hanko-profile></hanko-profile>
+
+		<script type="module">
+			import { register } from "https://esm.run/@teamhanko/hanko-elements";
+
+			await register("http://localhost:7000");
+		</script>
+	</body>
+</html>

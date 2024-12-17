@@ -1,0 +1,14 @@
+{
+	"name": "hanko_missing_events_bug_reproduction",
+	"version": "1.0.0",
+	"description": "A minimal reproduction project for an henko bug (hanko doesn't seam to sand webhook events on email creation/username change)",
+	"main": "express.js",
+	"scripts": {
+		"start": "node express.js"
+	},
+	"author": "Emanuele Scarsella",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.21.2"
+	}
+}

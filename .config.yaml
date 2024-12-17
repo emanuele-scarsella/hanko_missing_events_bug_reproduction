@@ -1,0 +1,95 @@
+debug: true
+account:
+  allow_deletion: true
+  allow_signup: true
+convert_legacy_config: false
+audit_log:
+  storage:
+    enabled: true
+database:
+  user: hanko
+  password: postgress_password
+  host: db
+  port: 5432
+  database: auth
+  dialect: postgres
+email:
+  enabled: true
+  optional: false
+  acquire_on_registration: true
+  acquire_on_login: false
+  limit: 5
+  max_length: 254
+  require_verification: true
+  use_as_login_identifier: true
+  use_for_authentication: true
+  passcode_ttl: 300
+email_delivery:
+  enabled: true
+  from_address: noreply@hanko.it
+  from_name: Hanko
+  smtp:
+    host: mailserver
+    port: 25
+log:
+  log_health_and_metrics: true
+passkey:
+  enabled: false
+password:
+  enabled: true
+  optional: false
+  acquire_on_registration: always
+  acquire_on_login: never
+  recovery: true
+  min_length: 8
+rate_limiter:
+  enabled: true
+  store: in_memory
+  passcode_limits:
+    tokens: 3
+    interval: 1m
+  password_limits:
+    tokens: 3
+    interval: 1m
+  token_limits:
+    tokens: 3
+    interval: 1m
+saml:
+  enabled: false
+secrets:
+  keys:
+    - just_a_reptoduction_repository_no_need_for_a_very_secret_key
+server:
+  public:
+    cors:
+      allow_origins:
+        - "*"
+      unsafe_wildcard_origin_allowed: true
+service:
+  name: "Hanko Auth"
+session:
+  lifespan: 12h
+  enable_auth_token_header: true
+username:
+  enabled: true
+  optional: false
+  acquire_on_registration: true
+  acquire_on_login: false
+  use_as_login_identifier: true
+  min_length: 6
+  max_length: 32
+webhooks:
+  enabled: true
+  allow_time_expiration: false
+  hooks:
+    - callback: "http://host.docker.internal:9000/webhook"
+      events:
+        - user
+        - user.create
+        - user.delete
+        - user.update
+        - user.update.email
+        - user.update.email.create
+        - user.update.email.delete
+        - user.update.email.primary
+        - email.send
